@@ -1,0 +1,20 @@
+li {
+    border: 5px solid darksalmon;
+    border-radius: 10px;
+}
+
+ul li {
+     color: yellowgreen;
+}
+
+.content li {
+    color: rgb(182, 135, 135);
+}
+
+li:first-child {
+    background: yellow;
+    }
+
+    li:nth-child(2) {
+        background: orange;
+        }

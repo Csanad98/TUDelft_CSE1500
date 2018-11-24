@@ -21,3 +21,16 @@ p.first {
 p.second {
     color: green;
 }
+
+a {
+    color: cornflowerblue;
+    text-decoration: none; /* remove the default underline */
+}
+
+a:visited {
+    color: tomato;
+}
+
+a:hover {
+    text-decoration: underline;
+}
