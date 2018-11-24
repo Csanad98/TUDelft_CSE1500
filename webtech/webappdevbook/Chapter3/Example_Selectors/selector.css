@@ -15,6 +15,6 @@ li:first-child {
     background: yellow;
     }
 
-    li:nth-child(2) {
-        background: orange;
-        }
+li:nth-child(2) {
+    background: orange;
+}
