@@ -13,3 +13,11 @@ div {
 p {
     border: 2px dashed blue;
 }
+
+p.first {
+    color: red;
+}
+
+p.second {
+    color: green;
+}
