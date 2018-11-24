@@ -1,0 +1,28 @@
+/*A CSS file is a collection of rulesets and a ruleset is simply a collection of style rules that
+are applied to some subset of elements in the DOM
+
+A ruleset consists of a selector (which
+we can think of as a tag name for now), an opening curly brace, a list of rules, and a final
+closing curly brace. Each rule consists of a specific property, followed by a colon, followed
+by a value (or a list of values separated by spaces), followed by a semicolon.
+
+
+*/
+
+/* Here we are styling the body */
+body {
+    background: lightcyan;
+    width: 800px;
+    margin: auto; /*set the margin to auto so that the body is centered on the page. */
+}
+
+h1 {
+    color: maroon;
+    text-align: center;
+}
+
+p {
+    color: gray;
+    border: 1px solid gray; /*create a border line around it*/
+    padding: 10px; /*create a a thin border around paragraphs*/
+}
