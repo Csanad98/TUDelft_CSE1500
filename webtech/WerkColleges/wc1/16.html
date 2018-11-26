@@ -1,0 +1,33 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<script src="16.js"></script><script>mocha.setup("bdd");</script>
+<h1>Exercise 16</h1>
+<p>Given the class <code>Vehicle</code> below, implement a class <code>Car</code> that inherits from it.
+In addition, class <code>Car</code> contains a property <code>plate</code> and overrides method <code>toString()</code>.</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance">inheritance</a>)</p>
+<pre><code class="js">Vehicle = function(color, hp) {
+  this.color = color;
+  this.hp = hp;
+}
+Vehicle.prototype.getColor = function() { return this.color; }
+Vehicle.prototype.getHp = function() { return this.hp; }
+Vehicle.prototype.toString = function() { return this.color + " vehicle with " + this.hp + " hp"; }
+
+Car = ...
+
+var v = new Vehicle("blue", 50);
+var c = new Car("red", 110, "GP-31-R");</code></pre>
+
+<script>
+it("test 1", function() { chai.assert.equal(typeof Car, "function"); });
+it("test 2", function() { chai.assert.equal(Car.prototype.constructor, Car); });
+it("test 3", function() { chai.assert.equal(typeof Car.prototype.getColor, "function"); });
+it("test 4", function() { chai.assert.equal(typeof Car.prototype.getHp, "function"); });
+it("test 5", function() { chai.assert.equal(typeof Car.prototype.toString, "function"); });
+it("test 6", function() { var c = new Car("c",1,"p"); chai.assert.equal(c.__proto__, Car.prototype); });
+it("test 7", function() { var c = new Car("c",1,"p"); chai.assert.equal(c.getColor, Vehicle.prototype.getColor); });
+it("test 8", function() { var c = new Car("c",1,"p"); chai.assert.equal(c.getHp, Vehicle.prototype.getHp); });
+it("test 9", function() { chai.assert.notEqual(Car.prototype.toString, Vehicle.prototype.toString); });
+</script>
+<p>Edit file <code>16.js</code> and refresh this page to check your solution.<p>
+<div id="mocha"><script>mocha.run()</script></body></html>

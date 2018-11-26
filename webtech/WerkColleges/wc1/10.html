@@ -1,0 +1,17 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<script src="10.js"></script><script>mocha.setup("bdd");</script>
+<h1>Exercise 10</h1>
+<p>Implement a function that receives a function <code>f</code> and another two parameters,
+  and returns <code>true</code> if calling <code>f</code> with those two parameters returns a positive number.</p>
+<pre><code class="js">function foo(f, x, y) {
+  ...
+}</code></pre>
+
+<script>
+it("test 1", function() { chai.assert.equal(foo(function(a,b){ return a+b; }, 3,-2), true); });
+it("test 2", function() { chai.assert.equal(foo(function(a,b){ return a*b; }, 3,-2), false); });
+it("test 3", function() { chai.assert.equal(foo(function(a,b){ return a-a; }, 3,null), true); });
+</script>
+<p>Edit file <code>10.js</code> and refresh this page to check your solution.<p>
+<div id="mocha"><script>mocha.run()</script></body></html>

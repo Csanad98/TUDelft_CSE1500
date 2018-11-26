@@ -1,0 +1,27 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<script src="14.js"></script><script>mocha.setup("bdd");</script>
+<h1>Exercise 14</h1>
+<p>Implement a class <code>Person</code> with a property <code>name</code> and two methods <code>getName</code> and <code>setName</code> to get and set its value.</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">prototype</a>)</p>
+<pre><code class="js">...
+
+var p = new Person("Bob");
+console.log(p.getName());
+o.setName("Robert");
+console.log(p.getName());</code></pre>
+
+<script>
+it("test 1", function() { chai.assert.equal(typeof Person, "function"); });
+it("test 2", function() { chai.assert.equal(Person.prototype.constructor, Person); });
+it("test 3", function() { chai.assert.equal(typeof Person.prototype.getName, "function"); });
+it("test 4", function() { chai.assert.equal(typeof Person.prototype.setName, "function"); });
+it("test 5", function() { var p = new Person("asd"); chai.assert.equal(p.__proto__, Person.prototype); });
+it("test 6", function() { var p = new Person("asd"); chai.assert.equal(p.getName, Person.prototype.getName); });
+it("test 7", function() { var p = new Person("asd"); chai.assert.equal(p.setName, Person.prototype.setName); });
+it("test 8", function() { var p = new Person("asd"); chai.assert.equal(p.name, "asd"); });
+it("test 9", function() { var p = new Person("asd"); chai.assert.equal(p.getName(), "asd"); });
+it("test 10", function() { var p = new Person("asd"); p.setName("fgh"); chai.assert.equal(p.getName(), "fgh"); });
+</script>
+<p>Edit file <code>14.js</code> and refresh this page to check your solution.<p>
+<div id="mocha"><script>mocha.run()</script></body></html>

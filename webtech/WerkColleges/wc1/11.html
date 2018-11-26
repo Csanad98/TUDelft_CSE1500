@@ -1,0 +1,19 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<h1>Exercise 11</h1>
+<p>What is the output of the console after executing the code below?</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#Function_declarations">functions</a>)</p>
+<pre><code class="js">var a = 42;
+var o = { name: 'Tom' }
+var q = { name: 'Paul' }
+function f(x, y, z) {
+  x = -x;
+  y.name = 'Diana';
+  z = { name: 'Jennifer'};
+}
+f(a, o, q);
+
+console.log(a);
+console.log(o.name);
+console.log(q.name);</code></pre>
+</body></html>

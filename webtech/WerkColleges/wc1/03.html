@@ -1,0 +1,18 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<script src="03.js"></script><script>mocha.setup("bdd");</script>
+<h1>Exercise 03</h1>
+<p>Implement a function that receives an array and returns another array with the same contents but without duplicates, maintaining the same order.</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">indexOf</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a>)</p>
+<pre><code class="js">function unique(a) {
+  ...
+}</code></pre>
+
+<script>
+it("test 1", function() { chai.assert.deepEqual(unique([]), []); });
+it("test 2", function() { chai.assert.deepEqual(unique([2,3,2,4,3]), [2,3,4]); });
+it("test 3", function() { chai.assert.deepEqual(unique([2,2]), [2]); });
+it("test 4", function() { chai.assert.deepEqual(unique([1,2,3]), [1,2,3]); });
+</script>
+<p>Edit file <code>03.js</code> and refresh this page to check your solution.<p>
+<div id="mocha"><script>mocha.run()</script></body></html>

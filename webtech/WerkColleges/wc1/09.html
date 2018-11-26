@@ -1,0 +1,16 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<h1>Exercise 09</h1>
+<p>What is the output of the console after executing the code below?</p>
+<pre><code class="js">function outer(x, y) {
+  var local = 1;
+  var inner = function(k) {
+    var z = x + y;
+    return z * k + local;
+  }
+  return inner(2);
+}
+var k = 3;
+
+console.log(outer(10,100));</code></pre>
+</body></html>

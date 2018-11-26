@@ -1,0 +1,21 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<h1>Exercise 06</h1>
+<p>What is the output of the console after executing the code below?</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">scope</a>)</p>
+<pre><code class="js">function f() {
+  console.log(a);
+}
+function g() {
+  var a = 3;
+  f();
+}
+var a = 2;
+g();</code></pre>
+
+<ol type="a">
+  <li><code>2</code></li>
+  <li><code>3</code></li>
+  <li><code>undefined</code></li>
+</ol>
+</body></html>

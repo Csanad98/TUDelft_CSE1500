@@ -1,0 +1,19 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<script src="02.js"></script><script>mocha.setup("bdd");</script>
+<h1>Exercise 02</h1>
+<p>Implement a function that returns an array with the minimum and maximum numbers found in the input array.</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread syntax</a>)</p>
+<pre><code class="js">function range(a) {
+  ...
+}</code></pre>
+
+<script>
+it("test 1", function() { chai.assert.deepEqual(range([3,2,6,4,2]), [2,6]); });
+it("test 2", function() { chai.assert.deepEqual(range([2,2,2,2]), [2,2]); });
+it("test 3", function() { chai.assert.deepEqual(range([2]), [2,2]); });
+it("test 4", function() { chai.assert.deepEqual(range([0,-10,1,-1,10]), [-10,10]); });
+it("test 5", function() { chai.assert.deepEqual(range([]), undefined); });
+</script>
+<p>Edit file <code>02.js</code> and refresh this page to check your solution.<p>
+<div id="mocha"><script>mocha.run()</script></body></html>

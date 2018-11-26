@@ -1,0 +1,17 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<h1>Exercise 08</h1>
+<p>Given the code below</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">closure</a>)</p>
+<pre><code class="js">function outer(x) {
+  var inner = function(y) { return x * y; }
+  return inner;
+}
+var two = outer(2);
+var three = outer(3);
+
+var a = two(10);
+var b = three(10);
+var c = two(three(10));</code></pre>
+<p>what is the value of <code>a</code>, <code>b</code>, and <code>c</code> after execution?</p>
+</body></html>

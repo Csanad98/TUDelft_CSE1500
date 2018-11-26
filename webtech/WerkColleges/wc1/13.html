@@ -1,0 +1,21 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<h1>Exercise 13</h1>
+<p>What is the output of the console after executing the code below?</p>
+<p>(hint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a>)</p>
+<pre><code class="js">var name = 'Alice';
+var a = {
+  name: 'Bob',
+  f: {
+    name: 'Charlie',
+    getName: function() {
+      return this.name;
+    }
+  }
+};
+var f = a.f.getName;
+
+console.log(a.f.getName());
+console.log(f());
+console.log(a.getName());</code></pre>
+</body></html>

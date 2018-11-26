@@ -1,0 +1,17 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<script src="12.js"></script><script>mocha.setup("bdd");</script>
+<h1>Exercise 12</h1>
+<p>Implement a sum function that can be called in two steps as follows: <code>sum(x)(y)</code>.</p>
+<pre><code class="js">
+function sum ... {
+  ...
+}
+</code></pre>
+
+<script>
+it("test 1", function() { chai.assert.equal(sum(3)(5), 8); });
+it("test 2", function() { chai.assert.equal(sum(1)(-1), 0); });
+</script>
+<p>Edit file <code>12.js</code> and refresh this page to check your solution.<p>
+<div id="mocha"><script>mocha.run()</script></body></html>

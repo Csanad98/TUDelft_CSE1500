@@ -1,0 +1,28 @@
+<html><meta charset="utf-8"><body><link href="lib/m.css" rel="stylesheet" />
+<script src="lib/mcj.js"></script><script>hljs.initHighlightingOnLoad();</script>
+<h1>Exercise 15</h1>
+<p>What is the output of the console after executing the code below?</p>
+<pre><code class="js">function F(x){
+  this.a = x;
+}
+F.prototype.foo = function(x) {
+  return this.a + x;
+}
+
+var a = new F(2);
+var b = new F(3);
+console.log(a.foo(5));
+console.log(b.foo(6));
+
+F.prototype.foo = function(x) {
+  return this.a - x;
+}
+console.log(a.foo(5));
+console.log(b.foo(6));
+
+a.foo = function(x) {
+  return this.a * x;
+}
+console.log(a.foo(5));
+console.log(b.foo(6));</code></pre>
+</body></html>

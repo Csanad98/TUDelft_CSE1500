@@ -1,0 +1,3 @@
+function allSubstr(s, n) {
+  
+}
