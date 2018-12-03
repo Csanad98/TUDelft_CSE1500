@@ -12,7 +12,32 @@
 
 			// 9. Update list of suggestions and corresponding actions
 			function updateSuggestions() {
-			}
+				var sOl = $("#suggestions"); // this is the div that contains the suggestion list
+	
+					// AJAX request to obtain suggestion list (with vote or not by current user)
+					$.getJSON("/suggestions", function(suggestions) {
+					// empty the containing div
+					sOl.empty();
+					$.each(suggestions, function(i, s) {
+						// build up the paragraph string for the suggestion
+						var newsug = '<p id="s' + i + '">' + (i+1) + '. ' + s.message + ' (' +
+							s.nick + ') votes: <span class="votes">' + s.voteCount +
+								'</span>';
+						if(!s.owner) {
+							newsug += ' | <a class="action" href="#" onclick="';
+							// make link +1 or -1 depending on whether user already voted or not
+							if(s.voted)
+								newsug += 'downvote(' + i + ')">-1</a>';
+							else
+								newsug += 'upvote(' + i + ')">+1</a>';
+						}
+						newsug += '</p>';
+
+						// prepend the new suggestion (depends on order returned by server)
+						sOl.prepend(newsug);
+					});
+	});
+}
 
 			// 15. Post a new suggestion
 			function postSuggestion(event) {

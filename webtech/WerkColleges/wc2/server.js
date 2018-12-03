@@ -33,26 +33,19 @@ app.use(function(req, res, next) {
 // If there is not, create a new userId and set the cookie to identify him/her
 
 // 7. and 8. Get list of suggestions
-app.get("/suggestions/", function(req, res){
-    var userId = 2;
-
-    var result = [];
-    suggestions.forEach(function(s) {
-        var r = {nick: s.nick, message: s.message, voteCount: s.voters.length,
-        owner: (s.userId == userId), voted: (s.voters.indexOf(userId) > -1)};
-
-        result.push(r);
-    });
-
-
-    res.json(result);
-
-    //for (var i = 0; i<suggestions.length; i++) {
-      //  if(suggestions[i].userId === 2) {
-      //      res.json(suggesstions[i]);
-       // }
-    //}
-    //res.json(suggestions);  //send back suggestions in json format
+app.get("/suggestions/", function(req, res) {
+	var userId = 2; // for now
+	// process list of suggestions, counting upvotes and checking whether this user is the owner
+	var result = [];
+	for(var i = 0; i < suggestions.length; i++) {
+		var s = suggestions[i];
+		var r = { nick: s.nick, message: s.message, voteCount: s.voters.length };
+		r.voted = s.voters.indexOf(userId) >= 0; // upvoted by this user?
+		r.owner = s.userId === userId; // owner?
+		result.push(r);
+	}
+	//console.log(suggestions); // to debug
+	res.json(result);
 });
 
 // 14. Post a new suggestion
