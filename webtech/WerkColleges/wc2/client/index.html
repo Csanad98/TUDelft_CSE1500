@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script language="javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script language="javascript">
+			// 11. Upvote for a suggestion
+			function upvote(sid) {
+			}
+
+			// 13. Downvote for a suggestion
+			function downvote(sid) {
+			}
+
+			// 9. Update list of suggestions and corresponding actions
+			function updateSuggestions() {
+			}
+
+			// 15. Post a new suggestion
+			function postSuggestion(event) {
+			}
+
+			// Update suggestions every 5 seconds and link the form to our own function
+			$(document).ready(function() {
+				updateSuggestions();
+				window.setInterval(updateSuggestions, 5000);
+
+				$("form").submit(postSuggestion);
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<h2>New Suggestion</h2>
+			<form action="/suggestions" method="post">
+				<label for="message">Message </label><input type="text" name="message" />
+				<label for="nick">Nick </label><input type="text" name="nick"/>
+				<button type="submit">Post</button> 
+			</form>
+		</div>
+		<h2>Current Suggestions</h2>
+		<div id="suggestions"></div>
+	</body>
+</html>
