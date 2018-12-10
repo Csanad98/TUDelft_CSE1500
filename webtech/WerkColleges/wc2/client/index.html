@@ -76,6 +76,20 @@
 
 			// 15. Post a new suggestion
 			function postSuggestion(event) {
+				// prevent the browser from submitting the form and refreshing the page
+				event.preventDefault();
+
+				var sug = {
+					message: $('input[name=message]').val(),
+					nick: $('input[name=nick]').val()
+					}; // this object contains the message and nick, taken from the form
+
+			
+					// AJAX request, with 'updateSuggestions' as callback to 
+					//trigger immediate update
+					$.post("/suggestions/", sug, updateSuggestions);
+			
+			
 			}
 
 			// Update suggestions every 5 seconds and link the form to our own function

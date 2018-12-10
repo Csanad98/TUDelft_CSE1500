@@ -3,6 +3,8 @@ const http = require("http");
 const cookies = require("cookie-parser");
 const bodyParser = require("body-parser");
 
+
+
 // 4. and 5. Data structures to support the application
 var suggestions = [
 	{ userId: 1, nick: "Alice", message: "Larger food portions", voters: [3, 2] },
@@ -49,6 +51,24 @@ app.get("/suggestions/", function(req, res) {
 });
 
 // 14. Post a new suggestion
+// use body-parser to parse parameters in the body of POST requests
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post("/suggestions/", function(req, res){
+	var message = req.body.message;
+	var nick = req.body.nick;
+	var userId = 2; //for now
+
+	var s = {userId: userId, nick: nick, message: message, voters: []};
+	suggestions.push(s);
+
+	console.log("# Post '" +message + "' by '" + nick + "' ("+userId+")");
+	res.end("ok");
+
+});
+
+
 
 // 10. and 18. Upvote a suggestion
 app.post("/votes/:suggestion", function(req, res) {
