@@ -27,8 +27,24 @@
 
 			// 13. Downvote for a suggestion
 			function downvote(sid) {
-			}
+    			// AJAX call to downvote
+				$.ajax({
+					url: "/votes/" + sid,
+					type: "DELETE",
+					success: function(res) {
+						// select span with vote count and update it
+						var currentVotes = $("#s" + sid + " span.votes")[0];
+						currentVotes.innerHTML = parseInt(currentVotes.innerHTML) - 1;
 
+						// select link with the action and update it
+						var voteLink = $("#s" + sid + " a.action")[0];
+						voteLink.innerHTML = "+1";
+						voteLink.onclick = function(event) {
+							upvote(sid);
+						};
+					}
+				});
+			}
 			// 9. Update list of suggestions and corresponding actions
 			function updateSuggestions() {
 				var sOl = $("#suggestions"); // this is the div that contains the suggestion list

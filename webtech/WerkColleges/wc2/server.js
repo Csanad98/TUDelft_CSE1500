@@ -68,6 +68,18 @@ app.post("/votes/:suggestion", function(req, res) {
 });
 
 // 11. and 18. Downvote a suggestion
+app.delete("/votes/:suggestion", function(req, res) {
+    var sugId = req.params.suggestion; // suggestion id is encoded in the url path
+    var userId = 2; // for now
+    var log = "# Downvoting " + sugId + " by " + userId + "...";
+
+    var sug = suggestions[sugId];
+    var i = sug.voters.indexOf(userId);
+    sug.voters.splice(i, 1);
+
+    console.log(log + "success");
+     res.end("ok");
+});
 
 // 2. Create HTTP server and listen
 http.createServer(app).listen(3000, function() {
