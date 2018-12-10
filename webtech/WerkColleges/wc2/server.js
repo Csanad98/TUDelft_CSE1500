@@ -17,10 +17,10 @@ var suggestions = [
 var usersCount = 3;
 
 // 2. Create Express server
-// serve static files if available
-// use body-parser to parse parameters in the body of POST requests
 var app = express();
-// serve static files if available
+// serve static files if available 
+//- used to serve static files such as images, CSS files, and JavaScript files
+app.use(express.static(__dirname + "/client"));
 
 // 3. Log each request received by the server
 app.use(function(req, res, next) {
@@ -34,28 +34,42 @@ app.use(function(req, res, next) {
 
 // 7. and 8. Get list of suggestions
 app.get("/suggestions/", function(req, res) {
-	var userId = 2; // for now
-	// process list of suggestions, counting upvotes and checking whether this user is the owner
-	var result = [];
-	for(var i = 0; i < suggestions.length; i++) {
-		var s = suggestions[i];
-		var r = { nick: s.nick, message: s.message, voteCount: s.voters.length };
-		r.voted = s.voters.indexOf(userId) >= 0; // upvoted by this user?
-		r.owner = s.userId === userId; // owner?
-		result.push(r);
-	}
-	//console.log(suggestions); // to debug
-	res.json(result);
+    var userId = 2; // for now
+    // process list of suggestions, counting upvotes and checking whether this user is the owner
+    var result = [];
+    for(var i = 0; i < suggestions.length; i++) {
+        var s = suggestions[i];
+        var r = { nick: s.nick, message: s.message, voteCount: s.voters.length };
+        r.voted = s.voters.indexOf(userId) >= 0; // upvoted by this user?
+        r.owner = s.userId === userId; // owner?
+        result.push(r);
+    }
+    //console.log(suggestions); // to debug
+    res.json(result);
 });
 
 // 14. Post a new suggestion
 
 // 10. and 18. Upvote a suggestion
+app.post("/votes/:suggestion", function(req, res) {
+	var sugId = req.params.suggestion; //suggesition id is encoded in url path 
+	// the : spcifies that there is a parameter
+	var userId = 2; //for now
+	var log = "# Upvoting " + sugId + " by "+userId + "...";
+
+	var sug = suggestions[sugId];
+	var i = sug.voters.indexOf(userId);
+	sug.voters.push(userId);
+
+	console.log(log + "success");
+	res.send("ok");
+
+	
+});
 
 // 11. and 18. Downvote a suggestion
 
 // 2. Create HTTP server and listen
-
 http.createServer(app).listen(3000, function() {
 	console.log("# Listening to port 3000...");
 });

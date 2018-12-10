@@ -4,6 +4,25 @@
 		<script language="javascript">
 			// 11. Upvote for a suggestion
 			function upvote(sid) {
+
+				//AJAX call to upvote
+				$.ajax({
+					url: "/votes/"+sid,
+					type: "POST",
+					success: function(res) {
+
+						//select span with vote count and update it
+						var currentVotes = $("#s"+sid + " span.votes")[0];
+						currentVotes.innerHTML = parseInt(currentVotes.innerHTML)+1;
+
+						//select link with action and update it
+						var voteLink = $("#s"+sid+" a.action")[0];
+						voteLink.innerHTML = "-1";
+						voteLink.onclick = function(event) {
+							downvote(sid);
+						};
+					}
+				});
 			}
 
 			// 13. Downvote for a suggestion
